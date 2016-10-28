@@ -44,3 +44,9 @@ var cv = require('civicrm-cv')({mode: 'sync'});
 var result = cv(['php:eval', '$x = 2; return [$x * $x];']);
 console.log("Received value: " + result);
 ```
+
+## Testing
+
+```
+npm test
+```
