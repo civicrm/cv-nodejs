@@ -20,12 +20,15 @@ var result = cvSync('api contact.get id=1');
 console.log("Found records: " + result.count);
 ```
 
-Note that the previous examples specify the full subcommand all options as
-one string. If wish you to break them up, pass an array. Each item will be
-escaped.
+Note that the previous examples specify the full subcommand (i.e.  all
+options are passed in one string).  If wish you to break them up, pass an
+array.  Each array item will be automatically escaped.
+
+This is particularly when uses the `php:eval` subcommand -- which often
+involves passing unusual characters, e.g.
 
 ```javascript
 var cvSync = require('civicrm-cv')({mode: 'sync'});
-var result = cvSync(['api', 'contact.get', 'id=1']);
-console.log("Found records: " + result.count);
+var result = cv(['php:eval', '$x = \'"\'; return [$x . 123 . $x];']);
+console.log("Found records: " + result);
 ```
