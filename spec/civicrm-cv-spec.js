@@ -73,7 +73,7 @@ describe("civicrm-cv synchronous api", function() {
     expect(result).toBe("$'");
 
     var result = cv(['php:eval', 'return "\\""']);
-    expect(result).toBe("\"");
+    expect(result).toBe('"');
 
     var result = cv(['php:eval', '$x = \'"\'; return [$x . 123 . $x];']);
     expect(result[0]).toBe('"123"');
