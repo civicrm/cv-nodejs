@@ -1,9 +1,10 @@
 ## civicrm-cv-node
 
 This is a wrapper for interacting with a local CiviCRM instance (in the
-current folder).  You may call `cv` subcommands such as `api` or `url`
+current folder).  You may call `cv` subcommands such as `api`, `vars:show`,
+or `url`.
 
-By default, results are returned as promises:
+Results may be returned as promises:
 
 ```javascript
 var cv = require('civicrm-cv')({mode: 'promise'});
@@ -15,9 +16,10 @@ cv('api contact.get id=1').then(function(result){
 Alternatively, you may execute subcommands synchronously:
 
 ```javascript
-var cvSync = require('civicrm-cv')({mode: 'sync'});
-var result = cvSync('api contact.get id=1');
-console.log("Found records: " + result.count);
+var cv = require('civicrm-cv')({mode: 'sync'});
+var result = cv('vars:show');
+console.log("The Civi database is " + result.CIVI_DB_DSN);
+console.log("The CMS database is " + result.CMS_DB_DSN);
 ```
 
 Note that the previous examples specify the full subcommand (i.e.  all
@@ -28,7 +30,7 @@ This is particularly when uses the `php:eval` subcommand -- which often
 involves passing unusual characters, e.g.
 
 ```javascript
-var cvSync = require('civicrm-cv')({mode: 'sync'});
+var cv = require('civicrm-cv')({mode: 'sync'});
 var result = cv(['php:eval', '$x = \'"\'; return [$x . 123 . $x];']);
-console.log("Found records: " + result);
+console.log("Received value: " + result);
 ```
