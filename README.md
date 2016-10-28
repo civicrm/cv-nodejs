@@ -6,8 +6,8 @@ current folder).  You may call `cv` subcommands such as `api` or `url`
 By default, results are returned as promises:
 
 ```javascript
-var cv = require('civicrm-cv')();
-cv.api('Contact', 'get', {id: 1}).then(function(result){
+var cv = require('civicrm-cv')({mode: 'promise'});
+cv('api contact.get id=1').then(function(result){
   console.log("Found records: " + result.count);
 });
 ```
@@ -16,9 +16,16 @@ Alternatively, you may execute subcommands synchronously:
 
 ```javascript
 var cvSync = require('civicrm-cv')({mode: 'sync'});
-var result = cvSync.api('Contact', 'get', {id: 1});
+var result = cvSync('api contact.get id=1');
 console.log("Found records: " + result.count);
 ```
 
-Note: If a `cv` subcommand includes a colon, then we present it in
-Javascript using camel-case, e.g.  `cv php:eval` becomes `cv.phpEval()`.
+Note that the previous examples specify the full subcommand all options as
+one string. If wish you to break them up, pass an array. Each item will be
+escaped.
+
+```javascript
+var cvSync = require('civicrm-cv')({mode: 'sync'});
+var result = cvSync(['api', 'contact.get', 'id=1']);
+console.log("Found records: " + result.count);
+```
