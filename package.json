@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/civicrm/node-civicrm-cv.git"
+    "url": "git+https://github.com/civicrm/cv-nodejs.git"
   },
   "author": "Tim Otten",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/civicrm/node-civicrm-cv/issues"
+    "url": "https://github.com/civicrm/cv-nodejs/issues"
   },
-  "homepage": "https://github.com/civicrm/node-civicrm-cv#readme",
+  "homepage": "https://github.com/civicrm/cv-nodejs#readme",
   "dependencies": {
     "child-process-promise": "^2.1.3"
   },

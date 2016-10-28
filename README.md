@@ -1,4 +1,4 @@
-## node-civicrm-cv
+## civicrm-cv-node
 
 This is a wrapper for interacting with a local CiviCRM instance (in the
 current folder).  You may call `cv` subcommands such as `api` or `url`
