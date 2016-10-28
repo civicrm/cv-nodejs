@@ -1,8 +1,18 @@
-## civicrm-cv-node
+# civicrm-cv (nodejs binding)
 
 This is a wrapper for interacting with a local CiviCRM instance (in the
-current folder).  You may call `cv` subcommands such as `api`, `vars:show`,
-or `url`.
+current folder).  You may call [`cv`](https://github.com/civicrm/cv)
+subcommands such as `api`, `vars:show`, or `url`.
+
+Note: This assumes that `cv` is already installed in the `PATH`.
+
+## Installation
+
+```
+npm install civicrm/cv-nodejs --save
+```
+
+## Usage
 
 Results may be returned as promises:
 
