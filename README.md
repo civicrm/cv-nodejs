@@ -26,11 +26,11 @@ Note that the previous examples specify the full subcommand (i.e.  all
 options are passed in one string).  If wish you to break them up, pass an
 array.  Each array item will be automatically escaped.
 
-This is particularly when uses the `php:eval` subcommand -- which often
+This is particularly useful with the `php:eval` subcommand -- which often
 involves passing unusual characters, e.g.
 
 ```javascript
 var cv = require('civicrm-cv')({mode: 'sync'});
-var result = cv(['php:eval', '$x = \'"\'; return [$x . 123 . $x];']);
+var result = cv(['php:eval', '$x = 2; return [$x * $x];']);
 console.log("Received value: " + result);
 ```
