@@ -20,9 +20,10 @@ Check that `cv` works with your local build (e.g. run `cv api system.get`).
 npm install civicrm/cv-nodejs --save
 ```
 
-## Usage
+## Usage: cv()
 
-Results may be returned as promises:
+Use the main `civicrm-cv` helper to call `cv` subcommands.  Results may be
+returned as promises:
 
 ```javascript
 // Call the Contact.get API for contact #100. Return a promise.
@@ -57,6 +58,18 @@ involves passing unusual characters, e.g.
 var cv = require('civicrm-cv')({mode: 'sync'});
 var result = cv(['php:eval', '$x = 2; return [$x * $x];']);
 console.log("Received value: " + result);
+```
+
+## Usage: cvRes
+
+`civicrm-cv` provides access to the local CiviCRM instance. If there are any
+resource files (such as CSS or JS) provided by CiviCRM, you can access them
+with through `resources`:
+
+```javascript
+var cvRes = require('civicrm-cv/resources')();
+console.log('The CiviCRM copy of lodash is: ', cvRes.getPath('civicrm', 'bower_components/lodash-compat/lodash.js'));
+cvRes.require('civicrm', 'bower_components/lodash-compat/lodash.js');
 ```
 
 ## Testing
