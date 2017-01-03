@@ -2,7 +2,7 @@
 
 This is a wrapper for interacting with a local CiviCRM instance (in the
 current folder).  You may call [`cv`](https://github.com/civicrm/cv)
-subcommands such as `api`, `vars:show`, or `url`.
+sub-commands such as `api`, `url`, `vars:show`, or `php:eval`.
 
 It aims to be a shim enabling `grunt`, `gulp`, `protractor` or other
 node-based CLI tools to manipulate the local Civi site (without any extra configuration
@@ -12,7 +12,7 @@ or hard-coded paths).
 
 Install [`cv`](https://github.com/civicrm/cv) somewhere in the `PATH`.
 
-Check that `cv` works with your local build (e.g. run `cv api system.get`).
+Check that `cv` works with your local build (e.g. run `cv api system.get` or ``cv api system.get -vvv`).
 
 ## Installation
 
@@ -84,4 +84,4 @@ Depending on the use-case, you may be better served with Xavier Dutoit's https:/
 
  * The `civicrm` package goes through the REST API. It works remotely and requires login credentials. It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s probably intended for data-integrations.
 
- * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`api contact.get id=3`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building. (I view )
+ * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`api contact.get id=3`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building.
