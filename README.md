@@ -14,7 +14,7 @@ or hard-coded paths).
 
  * Check that `cv` works with your local CiviCRM build (e.g. run `cv api system.get` or `cv api system.get -vvv`).
 
- * Run CLI commands under the Drupal/Joomla/WordPress web root (or any child thereof).
+ * Do your work under the Drupal/Joomla/WordPress web root (or any child thereof) so that it can be autodetected.
 
 ## Installation
 
@@ -76,6 +76,10 @@ cvRes.require('civicrm', 'bower_components/lodash-compat/lodash.js');
 
 ## Testing
 
+Tests are stored under `spec/` and written with [Jasmine](https://jasmine.github.io/).
+
+Execute them with `npm`:
+
 ```
 npm test
 ```
@@ -86,4 +90,4 @@ Depending on the use-case, you may be better served with Xavier Dutoit's [https:
 
  * The `civicrm` package goes through the REST API. It works remotely and requires login credentials (user and site key). It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s intended for data-integrations or nodejs based applications (eg an LDAP server or a bot).
 
- * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`api contact.get id=3`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building.
+ * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`cv('api contact.get id=3')`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building.
