@@ -80,8 +80,8 @@ npm test
 
 ## Comparison
 
-Depending on the use-case, you may be better served with Xavier Dutoit's https://www.npmjs.com/package/civicrm . For comparison:
+Depending on the use-case, you may be better served with Xavier Dutoit's https://github.com/TechToThePeople/node-civicrm . For comparison:
 
- * The `civicrm` package goes through the REST API. It works remotely and requires login credentials. It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s probably intended for data-integrations.
+ * The `civicrm` package goes through the REST API. It works remotely and requires login credentials (user and site key). It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s intended for data-integrations or nodejs based appllications (eg an ldap server, a bot or command line).
 
  * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`api contact.get id=3`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building.
