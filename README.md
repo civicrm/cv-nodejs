@@ -12,7 +12,7 @@ or hard-coded paths).
 
 Install [`cv`](https://github.com/civicrm/cv) somewhere in the `PATH`.
 
-Check that `cv` works with your local build (e.g. run `cv api system.get` or ``cv api system.get -vvv`).
+Check that `cv` works with your local build (e.g. run `cv api system.get` or `cv api system.get -vvv`).
 
 ## Installation
 
