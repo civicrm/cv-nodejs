@@ -10,9 +10,11 @@ or hard-coded paths).
 
 ## Requirements
 
-Install [`cv`](https://github.com/civicrm/cv) somewhere in the `PATH`.
+ * Install [`cv`](https://github.com/civicrm/cv) somewhere in the `PATH`.
 
-Check that `cv` works with your local build (e.g. run `cv api system.get` or `cv api system.get -vvv`).
+ * Check that `cv` works with your local CiviCRM build (e.g. run `cv api system.get` or `cv api system.get -vvv`).
+
+ * Run CLI commands under the Drupal/Joomla/WordPress web root (or any child thereof).
 
 ## Installation
 
@@ -80,8 +82,8 @@ npm test
 
 ## Comparison
 
-Depending on the use-case, you may be better served with Xavier Dutoit's https://github.com/TechToThePeople/node-civicrm . For comparison:
+Depending on the use-case, you may be better served with Xavier Dutoit's [https://github.com/TechToThePeople/node-civicrm](https://github.com/TechToThePeople/node-civicrm). For comparison:
 
- * The `civicrm` package goes through the REST API. It works remotely and requires login credentials (user and site key). It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s intended for data-integrations or nodejs based appllications (eg an ldap server, a bot or command line).
+ * The `civicrm` package goes through the REST API. It works remotely and requires login credentials (user and site key). It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s intended for data-integrations or nodejs based applications (eg an LDAP server or a bot).
 
  * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`api contact.get id=3`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building.
