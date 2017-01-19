@@ -48,8 +48,9 @@ console.log("The CMS database is " + result.CMS_DB_DSN);
 ```
 
 Note that the previous examples specify the full subcommand (i.e.  all
-options are passed in one string).  If wish you to break them up, pass an
-array.  Each array item will be automatically escaped.
+options are passed in one string which is executed as-is).  If you wish
+to break them up, pass an array.  Each array item will be automatically
+escaped.
 
 This is particularly useful with the `php:eval` subcommand -- which often
 involves passing unusual characters, e.g.
@@ -91,3 +92,26 @@ Depending on the use-case, you may be better served with Xavier Dutoit's [https:
  * The `civicrm` package goes through the REST API. It works remotely and requires login credentials (user and site key). It can take advantage of load-balancers, opcode caching, etc. It focuses on APIv3. It’s intended for data-integrations or nodejs based applications (eg an LDAP server or a bot).
 
  * The `civicrm-cv` package starts Civi via CLI. It works locally and can autodiscover the site. It includes some API support (`cv('api contact.get id=3')`) — but it can also execute PHP code and load metadata about the site-build. It’s intended more for testing and site-building.
+
+## Patchwelcome: Complicated API Inputs
+
+The mechanics of `cv(...)` should be pretty useable with most subcommands. For the API, it can handle basic API
+calls. *However*, if you need to use more advanced API options (such as chaining), it might look ugly.
+`cv api` can accept more complicated inputs using JSON notation and a pipe, as in:
+
+```
+echo '{"foo":["bar", 123, {...}]}' | cv api Entity.action --in=json
+```
+
+It would be really nice to have a a `cv api` wrapper which supports that more intuitively, e.g.
+
+```js
+var cv = require('civicrm-cv')({mode: 'promise'});
+cv.api('contact', 'create', {
+  contact_type: 'Individual',
+  first_name: 'Alice',
+  'api.Email.create': { ... }
+}).then(function(result){
+  console.log("Created records: " + result.count);
+});
+```
