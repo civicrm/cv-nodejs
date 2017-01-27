@@ -19,7 +19,7 @@ or hard-coded paths).
 ## Installation
 
 ```
-npm install civicrm/cv-nodejs --save
+npm install civicrm-cv --save
 ```
 
 ## Usage: cv()
