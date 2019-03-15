@@ -2,7 +2,11 @@ var execPromise = require('child-process-promise').exec;
 var execSync = require('child_process').execSync;
 
 var escape = function(cmd) {
-  return '\'' + cmd.replace(/'/g, "'\\''") + '\'';
+  if (process.platform === "win32") {
+    return '"' + cmd.replace(/"/g, "'") + '"';
+  } else {
+    return '\'' + cmd.replace(/'/g, "'\\''") + '\'';
+  }
 };
 
 function serializeArgs(args) {
